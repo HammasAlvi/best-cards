@@ -34,13 +34,19 @@
 </template>
 
 <script>
+import ultimateguide from "../components/icons/ultimate-guide.webp"
+import Miami from "../components/icons/miami-gp.webp"
+import chicago from "../components/icons/chicago-con.webp"
+import thankyou from "../components/icons/thankyou.jpg"
+import women from "../components/icons/women.webp"
+
 export default {
     data() {
         return {
             currentIndex: 0,
             slides: [
                 [{
-                    image: 'public/ultimate-guide.webp',
+                    image:ultimateguide,
                     alt: 'Ultimate Guide',
                     category: 'Credit Card Advice',
                     title: 'The Ultimate Bilt Rent Day Guide – May ...',
@@ -48,7 +54,7 @@ export default {
                     link: '#'
                 }],
                 [{
-                    image: 'public/miami-gp.webp',
+                    image: Miami,
                     alt: 'Miami Grand Prix',
                     category: 'Credit Card News',
                     title: 'Enjoy Exclusive Miami Grand Prix with ...',
@@ -56,7 +62,7 @@ export default {
                     link: '#'
                 }],
                 [{
-                    image: 'public/chicago-con.webp',
+                    image: chicago,
                     alt: 'Chicago',
                     category: 'Credit Card News',
                     title: 'EEEEEATSCON Chicago Presale Tix ...',
@@ -64,7 +70,7 @@ export default {
                     link: '#'
                 }],
                 [{
-                    image: 'public/thankyou.jpg',
+                    image: thankyou,
                     alt: 'ThankYou',
                     category: 'Credit Card Advice',
                     title: 'The Ultimate Bilt Rent Day Guide – May ...',
@@ -72,7 +78,7 @@ export default {
                     link: '#'
                 }],
                 [{
-                    image: 'public/women.webp',
+                    image: women,
                     alt: 'Women',
                     category: 'Credit Card News',
                     title: 'Citi Adds Limited-Time Accor Transfer ...',
@@ -80,7 +86,7 @@ export default {
                     link: '#'
                 }],
                 [{
-                    image: 'public/chicago-con.webp',
+                    image: chicago,
                     alt: 'Card 1',
                     category: 'Credit Card Tips',
                     title: 'Chase Announces Latest EEEEEATSCON LA ...',
