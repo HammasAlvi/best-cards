@@ -1,17 +1,30 @@
 <template>
   <header id="topest">
-    <div class="logo">
-      <img src="../components/icons/best-logo.webp" />
-    </div>
     <nav class="nav-bar">
-      <div class="opt">What's New</div>
-      <div class="dropdowns1">Browse Cards 
-        <div class="mega-dropdown">
-          <div class="options">
-            <div class="catagories">Categories
-              <div class="opt-list-cont">
-                <ul class="opt-list">
-                  <li>0% Into APR</li>
+      <div class="logo">
+        <img src="../components/icons/best-logo.webp" alt="best-logo" />
+      </div>
+
+      <div class="header-info">
+        <div class="info">Whats' New</div>
+
+        <div class="info2">
+          Browse Cards
+          <img src="../components/icons/chevron.png" alt="dropdown" />
+
+          <div class="mega-cont">
+            <div class="mega-dropdown">
+              <div class="cate-cont">
+
+                <div class="categories">
+                  <button id="cate-btn" @mouseover="catenone" ref="creditbtn">
+                    Categories
+                    <img src="../components/icons/next.png" alt="arrow" />
+                  </button>
+
+                  <div class="cate-list" ref="catelist">
+                    <ul class="cate-ul">
+                      <li>0% Into APR</li>
                   <li>Secured</li>
                   <li>Student</li>
                   <li>Low APR</li>
@@ -31,47 +44,116 @@
                   <li>Hotel</li>
                   <li>Debit & Prepaid</li>
                   <li>Retail</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-issuers">Cards Issuers
-              <div class="issues-cont">
-                <ul class="issues-list">
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="cards-issuers">
+                  <button id="issue-btn" @mouseover="cateblock" ref="issuebtn">
+                    Card Issuers
+                    <img src="../components/icons/next.png" alt="arrow">
+                  </button>
+
+                  <div class="issue-list" ref="issuelist">
+                    <ul class="issue-ul">
                   <li>American Express</li>
                   <li>Barclay</li>
                   <li>Chase</li>
                   <li>U.S. Bank</li>
-                  <li>Discover</li>
+                  <li>noneover</li>
                   <li>Bank of America</li>
                   <li>Capital One</li>
                   <li>Citibank</li>
                   <li>Wells Fargo</li>
                   <li>View All</li>
-                </ul>
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </div>
-            <div class="credits">Card Credits</div>
+          </div>
+        </div>
+
+        <div class="info3">
+          Resources 
+          <img src="../components/icons/chevron.png" alt="dropdown" />
+          <div class="resources-list">
+            <ul class="resources-ul">
+              <li>Credit Card Payoff Calculator</li>
+              <li>Credit Utilization Calculator</li>
+              <li>Monthly Budget Calculator</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info4">
+          News & Articles
+          <img src="../components/icons/chevron.png" alt="dropdown" />
+          <div class="arti-cont">
+            <ul class="arti-ul">
+              <li>Credit Card News</li>
+              <li>Best Credit Cards</li>
+              <li>Credit Card Advices</li>
+              <li>Credit Card Basics</li> 
+            </ul>
+          </div>
+        </div>
+
+        <div class="info5">
+          Become a Member
+          <img src="../components/icons/chevron.png" alt="dropdown" />
+          <div class="mem-cont">
+            <ul class="mem-ul">
+              <li>Sign Up</li>
+              <li>Log In</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="dropdowns2">Resources</div>
-      <div class="dropdowns3">News & Articles</div>
-      <div class="dropdowns4">Become a member</div>
     </nav>
 
+
+    <!-- Burger menu for responsive -->
+
     <div class="burger-menu">
+      <img src="../components/icons/best-logo.webp" alt="best-logo" />
+
       <div class="burger">
-        <img src="../components/icons/menu.png" alt="burger-menu"  @click="block()" ref="burger"/>
-        <img src="../components/icons/cross.png" alt="cross-menu" style="display: none;" v-on:click="hidden()" ref="cross">
+        <img
+          src="../components/icons/menu.png"
+          alt="burger-menu"
+          @click="block()"
+          ref="burger"
+        />
+        <img
+          src="../components/icons/cross.png"
+          alt="cross-menu"
+          style="display: none"
+          v-on:click="hidden()"
+          ref="cross"
+        />
       </div>
-      <div class="burger-header" ref="blockheader" v-on:click="block()" >
+      <div class="burger-header" ref="blockheader" v-on:click="block()">
         <div class="list-cont">
           <ul class="burger-list">
-            <li>What's New </li>
-            <li>Browse Cards <img src="../components/icons/arrow-up.png" alt="arrow"></li>
-            <li>Resources <img src="../components/icons/arrow-up.png" alt="arrow"></li>
-            <li>News & Articles <img src="../components/icons/arrow-up.png" alt="arrow"></li>
-            <li>Become a Member <img src="../components/icons/arrow-up.png" alt="arrow"></li>
+            <li>What's New</li>
+            <li>
+              Browse Cards
+              <img src="../components/icons/arrow-up.png" alt="arrow" />
+            </li>
+            <li>
+              Resources
+              <img src="../components/icons/arrow-up.png" alt="arrow" />
+            </li>
+            <li>
+              News & Articles
+              <img src="../components/icons/arrow-up.png" alt="arrow" />
+            </li>
+            <li>
+              Become a Member
+              <img src="../components/icons/arrow-up.png" alt="arrow" />
+            </li>
           </ul>
         </div>
       </div>
@@ -81,170 +163,352 @@
 
 <script>
 export default {
-  data(){
-    return{
-      isactiver:false
+  data() {
+    return {
+      isactiver: false,
+    };
+  },
+  methods: {
+    block() {
+      this.$refs.blockheader.style.display = "block";
+      this.$refs.burger.style.display = "none";
+      this.$refs.cross.style.display = "block";
+    },
+    hidden() {
+      this.$refs.blockheader.style.display = "none";
+      this.$refs.burger.style.display = "block";
+      this.$refs.cross.style.display = "none";
+    },
+    cateblock() {
+      this.$refs.catelist.style.display = "none";
+      this.$refs.issuelist.style.display = "block";
+      this.$refs.issuebtn.ClassList.add = "shadow"
+
+    },
+    catenone() {
+      this.$refs.catelist.style.display = "block";
+      this.$refs.issuelist.style.display = "none";
     }
   },
- methods: {
-  block() {
-    this.$refs.blockheader.style.display = 'block'
-    this.$refs.burger.style.display = 'none'
-    this.$refs.cross.style.display = 'block'
-  },
-  hidden() {
-    this.$refs.blockheader.style.display = 'none'
-    this.$refs.burger.style.display = 'block'
-    this.$refs.cross.style.display = 'none'
-  }
- }
-  
 };
 </script>
 
 <style lang="scss">
-header {
-  background-color: white;
-  border-bottom: 1px solid #eee;
-  height: auto;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: visible; // Changed to visible for debugging
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-.logo img {
-  margin-left: 10px;
-  width: 160px;
-  height: 42px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 .nav-bar {
+  height: auto;
+  padding: 14px;
+  font-family: Roboto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-right: 14px;
+  justify-content: space-between;
 
-  div {
-    padding: 6px;
-    margin: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: dodgerblue;
-
-    &:hover {
-      cursor: pointer;
-      color: black;
+  .logo {
+    img {
+      height: 44px;
     }
   }
 
-  .dropdowns1 {
-    &:hover .mega-dropdown {
-      display: block;
-      animation: fade-in 0.5s ease-in-out forwards;
-    }
+  .header-info {
+    display: flex;
+    align-items: center;
+    gap: 54px;
 
-    .mega-dropdown {
-      background-color: white;
-      border: 1px solid blue;
-      display: none;
-      padding: 0;
-      cursor: auto;
-      position: absolute;
-      height: 254px;
-      width: 994px;
-      transform: translateX(-50%);
-      border-radius: 0 0 10px 10px;
-      visibility: visible;
-      transition: opacity 200ms ease-in, visibility 200ms ease-in;
-    }
+    div {
+      color: #5b66b3;
+      font-weight: 300;
 
-    .options {
-      display: flex;
-      border-bottom: 1px solid #eee;
-      margin: 6px;
-
-      div {
-        height: 30px;
-        border: 1px solid white;
-        border-radius: 12px;
-        padding: 6px;
-        margin: 10px;
-        width: 308px;
-        background-color: white;
-
-        &:hover {
-          box-shadow: 0 0 5px black;
-        }
+      img {
+        height: 12px;
       }
 
-      .catagories {
-        position: relative;
+      &:hover {
+        cursor: pointer;
+        color: #1f223a;
+      }
+    }
 
-        .opt-list-cont {
-          height: 0;
-          width: 0;
-          padding: 0;
-          margin: 0;
-          border-radius: 0;
-          transition: opacity 0.3s ease-in-out;
+    .info2 {
+      position: relative;
+
+      &:hover .mega-cont {
+        animation: fade-in 0.8s ease-in-out;
+        display: block;
+      }
+
+      .mega-cont {
+        display: none;
+        z-index: 999;
+        position: absolute;
+        top: 15px;
+
+        transform: translate(-50%);
+        padding: 20px;
+        height: 290px;
+        width: 1030px;
+        
+
+        .mega-dropdown {
+          border: 1px solid black;
+          border-radius: 0 0 12px 12px;
+          height: 250px;
+          padding: 10px;
+          width: 995px;
+          background: #fff;
+          cursor: auto;
+
+          .cate-cont {
+            display: flex;
+            
+            gap: 36px;
+
+            .categories {
+              width: 32%;
+
+              #cate-btn {
+
+                padding: 10px;
+                background-color: #fff;
+                outline: none;
+                border: none;
+                border-radius: 11px;
+                width: 100%;
+                height: 3.5vw;
+                text-align: start;
+                font-family: Roboto;
+                font-size: 21px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                img{
+                  transform: rotate(90deg);
+                  height: 16px;
+                }
+
+                &:hover{
+                  cursor: pointer;
+                }
+              }
+
+              .cate-list{
+                z-index: 1000;
+                margin-top: 8px;
+                height: 14vw;
+                width: auto;
+
+                .cate-ul{
+                  font-family: Roboto;
+                  height: 179px;
+                  width: 975px;
+                  display: grid;
+                  grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
+                  grid-template-columns: repeat(5,1fr);
+                  list-style: none;
+                  align-items: center;
+                  z-index: 999;
+                  color: black;
+                  cursor: pointer;
+
+                  li{
+
+                    &:hover{
+                      cursor:pointer;
+                      color: #1b0db9e3;
+                    }
+                  }
+                }
+
+              
+              }
+            }
+
+            .cards-issuers{
+              height: 0px;
+              width: 32%;
+
+              #issue-btn{
+                padding: 8px;
+                background-color: #fff;
+                outline: none;
+                border: none;
+                border-radius: 11px;
+                width: 100%;
+                height: 3.5vw;
+                text-align: start;
+                font-family: Roboto;
+                font-size: 21px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                img{
+                  height: 16px;
+                }
+
+                &:hover{
+                  cursor: pointer;
+                }
+              }
+
+              .issue-list{
+                display: none;
+
+                .issue-ul{
+                  margin-top: auto;
+                  font-family: Roboto;
+                  height: 10vw;
+                  width: 975px;
+                  display: grid;
+                  grid-template-rows: 1fr 1fr;
+                  grid-template-columns: repeat(5,1fr);
+                  list-style: none;
+                  align-items: center;
+                  z-index: 999;
+                  color: black;
+                  cursor: pointer;
+                  transform: translate(-30%);
+
+                  li{
+                    
+                    &:hover{
+                      cursor:pointer;
+                      color: #1b0db9e3;
+                    }
+                  }
+                }
+              }
+            }
+            
+          }
         }
+      }
+    }
 
-        .opt-list {
-          padding: 4px;
-          position: absolute;
-          top: 72px;
-          width: 70vw;
+    .info3{
+      position:relative;
+
+      .resources-list{
+        transform: translate(-30%);
+        position:absolute;
+        top: 20px;
+        cursor: auto;
+        color: #1b0db9e3;
+        width: max-content;
+        background-color: #fff;
+        z-index: 999;
+        border-radius:  0 0 12px 12px;
+        display: none;
+
+        .resources-ul{
           list-style: none;
-          color: black;
-          display: grid;
-          grid-template-rows: repeat(5, 1fr);
-          grid-template-columns: repeat(4, 1fr);
-          line-height: 30px;
+          padding: 10px;
 
-          li {
-            display: inline;
-            color: black;
+          li{
+            width: max-content;
+            margin: 32px 100px  32px 12px;
 
-            &:hover {
-              color: blue;
+            &:hover{
+              cursor: pointer;
+              color: #5b66b3;
             }
           }
         }
       }
 
-      .card-issuers {
-        position: relative;
-
-        .issues-cont {
-          transform: translateY(-50%);
-          height: 0;
-          width: 0;
-          padding: 0;
-          margin: 0;
-          border-radius: 0;
-          transition: opacity 0.3s ease-in-out;
-        }
-
-        .issues-list {
-          padding: 4px;
-          position: absolute;
-          top: 72px;
-          width: 70vw;
-          list-style: none;
-          color: black;
-          display: grid;
-          grid-template-rows: repeat(2, 4fr);
-          grid-template-columns: repeat(4, 4fr);
-          line-height: 30px;
-        }
-
-        &:hover .catagories {
-          display: none;
-        }
+      &:hover .resources-list{
+        display: block;
+        animation: fade-in 0.5s ease-in-out;
+ 
       }
     }
+
+
+    .info4{
+      position:relative;
+
+      .arti-cont{
+        transform: translate(-30%);
+        position:absolute;
+        top: 20px;
+        cursor: auto;
+        color: #1b0db9e3;
+        width: max-content;
+        background-color: #fff;
+        z-index: 999;
+        border-radius:  0 0 12px 12px;
+        display: none;
+
+        .arti-ul{
+          list-style: none;
+          padding: 10px;
+
+          li{
+            width: max-content;
+            margin: 32px 100px  32px 12px;
+
+            &:hover{
+              cursor: pointer;
+              color: #5b66b3;
+            }
+          }
+        }
+      }
+
+      &:hover .arti-cont{
+        display: block;
+        animation: fade-in 0.5s ease-in-out;
+ 
+      }
+    }
+
+    .info5{
+      position:relative;
+
+      .mem-cont{
+        transform: translate(-16%);
+        position:absolute;
+        top: 20px;
+        cursor: auto;
+        color: #1b0db9e3;
+        width: max-content;
+        background-color: #fff;
+        z-index: 999;
+        border-radius:  0 0 12px 12px;
+        display: none;
+
+        .mem-ul{
+          list-style: none;
+          padding: 10px;
+
+          li{
+            width: max-content;
+            margin: 32px 100px  32px 12px;
+
+            &:hover{
+              cursor: pointer;
+              color: #5b66b3;
+            }
+          }
+        }
+      }
+
+      &:hover .mem-cont{
+        display: block;
+        animation: fade-in 0.5s ease-in-out;
+ 
+      }
+    }
+
   }
 }
 
@@ -277,9 +541,9 @@ header {
     display: none; // Initially hidden
 
     // You can add styles for when the burger is active here
-    .list-cont{
-     margin: 12px;
-      .burger-list{
+    .list-cont {
+      margin: 12px;
+      .burger-list {
         list-style-type: none;
         display: flex;
         font-family: Roboto;
@@ -288,18 +552,22 @@ header {
         flex-direction: column;
         gap: 18px;
 
-        li{
+        li {
           display: flex;
           align-items: center;
           justify-content: space-between;
 
-          img{
+          img {
             transform: rotate(90deg);
           }
         }
       }
     }
   }
+}
+
+.shadow{
+  box-shadow: 0 0 6px grey;
 }
 
 @keyframes fade-in {
@@ -311,13 +579,21 @@ header {
   }
 }
 
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .nav-bar {
     display: none;
   }
   .burger-menu {
     display: block;
-
   }
 }
 </style>
